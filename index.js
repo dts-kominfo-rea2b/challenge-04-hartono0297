@@ -8,7 +8,23 @@ const dates = [
 ];
 
 // TODO: Buatlah fungsi createDate
-const createDate = null;
+const createDate = (tgl, idx) => {
+  const tanggal = [];
+  for (let i = 0; i < tgl.length; i++) {
+    const date = new Date(tgl[i]).getTime() / 1000;
+    const dateString = date.toString();
+    tanggal.push(dateString);
+  }
+
+  
+  if (idx === undefined) {
+    const sort = tanggal.sort((a, b) => a - b);
+    return sort.join("-");
+  } else {
+    const sort = tanggal.sort((a, b) => a + b);
+    return tanggal[idx];
+  }
+};
 
 // ! JANGAN DIMODIFIKASI
 (() => {
